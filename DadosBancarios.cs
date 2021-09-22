@@ -12,12 +12,11 @@ namespace Banco
         {
             NumeroConta = numeroconta;
             Nome = nometitular;
-            Saldo = 0.00;
         }
 
         public DadosBancarios(int numeroconta, string nometitular, double saldo) : this(numeroconta, nometitular)
         {
-            Saldo = saldo;
+            Deposito(saldo);
         }
 
         public void Deposito(double valor)

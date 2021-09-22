@@ -6,7 +6,9 @@ namespace Banco
     {
         static void Main(string[] args)
         {
-            
+            DadosBancarios conta;
+
+
             Console.Write("Informe o número da conta: ");
             int numeroconta = int.Parse(Console.ReadLine());
             Console.Write("Informe o titular da conta: ");
@@ -14,15 +16,16 @@ namespace Banco
             Console.Write("Haverá depósito inicial (S/N)? ");
             char validardeposito = char.Parse(Console.ReadLine());
 
-            double depositoinicial = 0;
-
+            
             if (validardeposito == 'S' || validardeposito == 's')
             {
                 Console.Write("Informe o valor do depósito inicial: ");
-                depositoinicial = double.Parse(Console.ReadLine());
+                double depositoinicial = double.Parse(Console.ReadLine());
+                conta = new DadosBancarios(numeroconta, nometitular, depositoinicial);
             }
             else if (validardeposito == 'N' || validardeposito == 'n') 
             {
+                conta = new DadosBancarios(numeroconta, nometitular);
                 Console.WriteLine();                
             }
             else
@@ -31,8 +34,6 @@ namespace Banco
                 return;
             }
 
-            DadosBancarios conta = new DadosBancarios(numeroconta, nometitular, depositoinicial);
-            
             Console.WriteLine("Dados da conta: ");
             Console.WriteLine($"{conta}");
 
